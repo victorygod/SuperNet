@@ -37,5 +37,6 @@ Since the operations here are all by multiplication, while we are doing backprop
 
 And there is a small redundant operation at the end of the Generating network, we add a tanh function. The reason we did this is this operation will restrict the generated weights in the Classifying network never exploded up. It is redundant, which means we can make the output linear. However, it is hard to train.
 
-## Implementation (Experiments)
+## Implementation and Analysis (Experiments)
 
+We did 3 experienments.
