@@ -25,9 +25,17 @@ This dataset is just like the CIFAR-10, except it has 100 classes containing 600
 
 Here we use CIFAR-100 dataset, because our experiments are studying tasks on similar problems, which requires as many classes as possible.
 
-## Algorithm
+## Algorithm (Network Architecture)
 
 Our study of SuperNet is specified on classification tasks. Our network is sperated into two part: Generating network and Classifying network. 
 
-The Generating network is a multi-task fully conncected network. It takes in a small vector as input. It generates every weights in the Classifying network.
+![superNet](https://github.com/victorygod/SuperNet/blob/master/supernet.png)
+
+The Generating network is a multi-task fully conncected network. It takes in a small vector as input. It generates every weights in the Classifying network. The Classifying network takes in the input image. In every layer of the Classifying network, it multiply the data from last layer with the output of the Generating network. As the Generating network is multi-task, it generates different weights for every layer of the Classifying network. 
+
+Since the operations here are all by multiplication, while we are doing backpropagation, the loss from the Classifying network will be finally propagated to the Generating network. So the only trainable weights are in Generating network. 
+
+And there is a small redundant operation at the end of the Generating network, we add a tanh function. The reason we did this is this operation will restrict the generated weights in the Classifying network never exploded up. It is redundant, which means we can make the output linear. However, it is hard to train.
+
+## Implementation (Experiments)
 
