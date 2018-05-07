@@ -27,4 +27,7 @@ Here we use CIFAR-100 dataset, because our experiments are studying tasks on sim
 
 ## Algorithm
 
-Our study of SuperNet is specified on classification tasks. Our network is sperated into two part: Generating network and Classifying network. The Generating network.
+Our study of SuperNet is specified on classification tasks. Our network is sperated into two part: Generating network and Classifying network. 
+
+The Generating network is a multi-task fully conncected network. It takes in a small vector as input. It generates every weights in the Classifying network.
+
