@@ -40,3 +40,5 @@ And there is a small redundant operation at the end of the Generating network, w
 ## Implementation and Analysis (Experiments)
 
 We did 3 experienments.
+
+The first experienment is to prove that we could get a new network by only changing the input vector of the Generating network. Here we call the input vector of the Generating network the vector z.
