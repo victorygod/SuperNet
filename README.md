@@ -39,6 +39,11 @@ And there is a small redundant operation at the end of the Generating network, w
 
 ## Implementation and Analysis (Experiments)
 
-We did 3 experienments.
+We did multiple experienments to explore the character of the SuperNet.
 
-The first experienment is to prove that we could get a new network by only changing the input vector of the Generating network. Here we call the input vector of the Generating network the vector z.
+The first experienment is to prove that we could get a new network by only changing the input vector of the Generating network. Here we call the input vector of the Generating network the vector z. 
+
+Define a task i, Ti, as a binary classification task between class i and class 100 in CIFAR-100. Thus there are 99 tasks, which represented as T1~T99. For each task the ouput is a binary value, 1 represents the input image belongs to calss 100 and 0 to class i. The input of each task is restricted within those images belong to class 100 and class i.
+
+As we have got 99 similar tasks, we can use T1~T98 to train a Generating network. We give an unique value of z for each of the task. In this experiment, vector z is 100-dimenson vector and we use the one-hot value as the initial value of z. Then we freeze the network, using T99 to test whether could we get a suitable network only by changing the vector z.
+
