@@ -60,4 +60,6 @@ Experienment 1 is not perfect because the Generating network may have already le
 The result of experienment 2 shows the network also converged, which means the network actually resort to vector z to get a new network.
 
 
+## Conclusion
 
+The idea of SuperNet is that the weights of networks for similar tasks are also similar. And a new network could be generated from a small vector. This vector is a compress representation of this new network in the domain of such similar network. We designed experienments to prove that we can get a new network by only training a small vector. The meaning of SuperNet is that in transfer learning, if we use SuperNet to fit target domain, the trainable weights will be very few and the flexibility will be guaranteed.
