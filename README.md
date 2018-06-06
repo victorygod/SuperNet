@@ -63,6 +63,7 @@ The result of experienment 2 shows the network also converged, which means the n
 This time we try out on a little more realistic and diffcult task: counting objects of every class for an input image on MS coco dataset. We use places as the domains. By running a fully trained place classifier trained on "MIT places2" dataset we get the place prediction for every image in coco. These predictions are not ensured to be accurate since places paper says their top5
  accuracy is 88% or so. There are 365 place classes so we just put the 365 dimensional vector at the input of our supernet, making only the supernet part trainable:
  ![super domain network](https://github.com/victorygod/SuperNet/blob/master/image.png)
+ 
  Specifically, we use five layers of convolution followed by two of fully connected. For each layer of the task classifier we use a 2-3 layers fully connected layer to generate the weights. More detailed structure can be clearly seen in the tensorflow code. We trained and test this model. The average accuracy for counting is higher then 91% while it is stucked to 88% if we use exactly the same task classifier in traditional CNN format but do not use superNet.
 ## Conclusion
 
