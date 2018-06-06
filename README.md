@@ -59,7 +59,10 @@ Experienment 1 is not perfect because the Generating network may have already le
 
 The result of experienment 2 shows the network also converged, which means the network actually resort to vector z to get a new network.
 
-
+### Experienment 3
+This time we try out on a little more realistic and diffcult task: counting objects of every class for an input image on MS coco dataset. We use places as the domains. By running a fully trained place classifier trained on "MIT places2" dataset we get the place prediction for every image in coco. These predictions are not ensured to be accurate since places paper says their top5
+ accuracy is 88% or so. There are 365 place classes so we just put the 365 dimensional vector at the input of our supernet, making only the supernet part trainable:
+ 
 ## Conclusion
 
 The idea of SuperNet is that the weights of networks for similar tasks are also similar. And a new network could be generated from a small vector. This vector is a compress representation of this new network in the domain of such similar network. We designed experienments to prove that we can get a new network by only training a small vector. The meaning of SuperNet is that in transfer learning, if we use SuperNet to fit target domain, the trainable weights will be very few and the flexibility will be guaranteed.
